@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --open --port=4206",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
     "e2e": "ng e2e"
   },
   "private": true,
@@ -16,6 +17,7 @@
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
     "@angular/core": "~8.0.0",
+    "@angular/flex-layout": "^8.0.0-beta.26",
     "@angular/forms": "~8.0.0",
     "@angular/material": "^8.0.1",
     "@angular/platform-browser": "~8.0.0",
