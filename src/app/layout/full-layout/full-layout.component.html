@@ -1,0 +1,20 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav [mode]="'over'">
+    <p><button mat-button (click)="auth.logOut()">Logout</button></p>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      <mat-icon (click)="sidenav.toggle()">reorder</mat-icon>
+      <span class="title">Application Demo</span>
+    </mat-toolbar>
+    <div id="main">
+      <router-outlet></router-outlet>
+        <p class="text-center">
+          full-layout works!
+        </p>
+    </div>
+    <mat-toolbar>
+      <span>&copy; demo company</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

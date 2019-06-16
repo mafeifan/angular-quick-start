@@ -1,3 +1,15 @@
-<p>
-  login works!
-</p>
+<form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div fxLayout="column" fxLayoutAlign="space-between" fxLayoutGap="10px" fxFlex.lt-md="100">
+    <mat-form-field>
+      <input type="text" matInput placeholder="Username" autocomplete="off" formControlName="username"
+             name="username" autocapitalize="none"/>
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password" matInput placeholder="Password" autocomplete="off" formControlName="password"
+             name="password" autocapitalize="none"/>
+    </mat-form-field>
+    <div class="container-submit">
+      <button type="submit" mat-flat-button color="primary" [disabled]="loginForm.invalid || loading">Log In</button>
+    </div>
+  </div>
+</form>

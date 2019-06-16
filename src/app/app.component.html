@@ -1,18 +1,2 @@
-<mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav [mode]="'over'">
-    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-    <mat-toolbar>
-      <mat-icon (click)="sidenav.toggle()">reorder</mat-icon>
-      <span class="title">Application Demo</span>
-    </mat-toolbar>
-    <div id="main">
-      <router-outlet></router-outlet>
-    </div>
-    <mat-toolbar>
-      <span>&copy; mafeifan</span>
-    </mat-toolbar>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<ngx-loading-bar color="#77cbc9"></ngx-loading-bar>
+<router-outlet></router-outlet>
