@@ -14,8 +14,14 @@ export class DashboardComponent implements OnInit {
     private userService: UserService,
   ) { }
 
+  dialogReplaceRemoteCtrl = false;
+
   ngOnInit() {
     this.userList$ = this.userService.getUserList();
+  }
+
+  onShow() {
+    this.dialogReplaceRemoteCtrl = true;
   }
 
 }

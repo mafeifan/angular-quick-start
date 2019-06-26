@@ -1,0 +1,10 @@
+<!-- 遮盖层 -->
+<div class="modal-overlay" *ngIf="visible && showModal" (click)="visible = false"></div>
+
+<!-- dialog -->
+<div class="base-dialog" *ngIf="visible"
+     [ngClass]="['theme-'+ theme, 'position-' + position, 'size-' + size, visible ? 'show' : '']">
+  <div class="dialog-content">
+    <ng-content></ng-content>
+  </div>
+</div>

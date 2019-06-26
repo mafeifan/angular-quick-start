@@ -1,3 +1,16 @@
-<p class="text-center" *ngFor="let item of userList$ | async">
-  {{item.id}} -- {{item.name}}
-</p>
+<!--<p class="text-center" *ngFor="let item of userList$ | async">-->
+  <!--{{item.id}} &#45;&#45; {{item.name}}-->
+<!--</p>-->
+
+<button (click)="onShow()">Show</button>
+
+<app-base-dialog [(ngModel)]="dialogReplaceRemoteCtrl" position="middle" name="visible">
+  <div class="dialog-header">当前遥控器是否可用?</div>
+  <div class="dialog-body">
+    <div>
+      <button class="full-width"
+                  (click)="dialogReplaceRemoteCtrl=false">使用这个
+      </button>
+    </div>
+  </div>
+</app-base-dialog>
