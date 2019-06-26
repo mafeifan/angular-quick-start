@@ -4,13 +4,16 @@
 
 <button (click)="onShow()">Show</button>
 
-<app-base-dialog [(ngModel)]="dialogReplaceRemoteCtrl" position="middle" name="visible">
-  <div class="dialog-header">当前遥控器是否可用?</div>
-  <div class="dialog-body">
+<app-base-dialog [(ngModel)]="dialogReplaceRemoteCtrl" position="middle" name="visible" dialogTitle="这是标题">
+  <ng-container class="dialog-body">
     <div>
       <button class="full-width"
-                  (click)="dialogReplaceRemoteCtrl=false">使用这个
+        (click)="dialogReplaceRemoteCtrl=false">使用这个
       </button>
     </div>
-  </div>
+  </ng-container>
+  <ng-container class="dialog-footer">
+    <button>取消</button>
+    <button>确定</button>
+  </ng-container>
 </app-base-dialog>

@@ -15,6 +15,7 @@ import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
   ]
 })
 export class BaseDialogComponent implements OnInit, ControlValueAccessor {
+  @Input() dialogTitle = '';
   /*
    * 主题色 white | black
    * */

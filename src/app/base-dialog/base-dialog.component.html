@@ -5,6 +5,9 @@
 <div class="base-dialog" *ngIf="visible"
      [ngClass]="['theme-'+ theme, 'position-' + position, 'size-' + size, visible ? 'show' : '']">
   <div class="dialog-content">
-    <ng-content></ng-content>
+    <div class="dialog-header">{{dialogTitle}}</div>
+    <div class="dialog-body">
+      <ng-content select=".dialog-body"></ng-content>
+    </div>
   </div>
 </div>
