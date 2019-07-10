@@ -31,6 +31,8 @@ FROM nginx:1.13.9-alpine
 # copy artifact build from the 'build environment'
 COPY --from=builder /app/dist/ /usr/share/nginx/html
 
+COPY docker-build/nginx/sites-enabled/default /etc/nginx/sites-enabled/default
+
 # expose port 80
 EXPOSE 80
 
