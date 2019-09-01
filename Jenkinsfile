@@ -4,8 +4,8 @@
      stage("检出") {
          sh 'pwd'
          sh 'ls -la'
-         sh 'cat ci-init'
          sh 'ci-init'
+         sh "printenv"
          checkout(
            [$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]], userRemoteConfigs: [[url: env.GIT_REPO_URL]]]
          )
