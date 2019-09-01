@@ -33,7 +33,7 @@ node {
             steps {
                 echo "单元测试中..."
                 sh 'npm run lint && npm run citest'
-                sh tar -zcvf reports.tar.gz ./reports/*'
+                sh 'tar -zcvf reports.tar.gz ./reports/*'
                 junit 'reports/*.xml'
                 archiveArtifacts artifacts: '**/*.tar.gz', fingerprint: true
                 echo "单元测试完成."
