@@ -5,18 +5,14 @@ pipeline {
         // 详情请阅 https://dev.tencent.com/help/knowledge-base/how-to-use-ci#agents
         // label "default"
         docker {
-            image 'finleyma/circleci-nodejs-browser-awscli:latest'
+            image 'circleci/node:10.14-browsers'
         }
     }
     stages  {
 
-        stage("检出") {
+        stage('Checkout') {
             steps {
-                // sh 'ci-init'
-                checkout(
-                    [$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]],
-                    userRemoteConfigs: [[url: env.GIT_REPO_URL]]]
-                )
+                git branch: 'master', credentialsId: 'mafei-github-private-key', url: 'git@e.coding.net:mafeifan/angular-quickstart.git'
             }
         }
 
