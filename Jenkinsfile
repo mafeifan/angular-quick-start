@@ -1,5 +1,10 @@
+ // https://e.coding.net/help/knowledge-base/ci-ways/
+
  node {
      stage("检出") {
+         sh 'pwd'
+         sh 'ls -la'
+         sh 'cat ci-init'
          sh 'ci-init'
          checkout(
            [$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]], userRemoteConfigs: [[url: env.GIT_REPO_URL]]]
