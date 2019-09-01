@@ -1,4 +1,4 @@
-node {
+pipeline {
     agent {
         // 此处设定构建环境，目前可选有
         // default, java-8, python-3.5, ruby-2.3, go-1.11 等
