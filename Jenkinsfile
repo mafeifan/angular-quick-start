@@ -12,7 +12,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git branch: 'master', credentialsId: 'mafei-github-private-key', url: 'git@e.coding.net:mafeifan/angular-quickstart.git'
+                git branch: 'master', credentialsId: '275cd4c2-2ac5-43ad-965c-ad3bcee6e444', url: 'git@e.coding.net:mafeifan/angular-quickstart.git'
             }
         }
 
