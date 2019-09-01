@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, forwardRef, ViewEncapsulation, HostListener } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
+/* tslint:disable */
+
 @Component({
   selector: 'app-base-dialog',
   templateUrl: './base-dialog.component.html',
