@@ -5,7 +5,7 @@ pipeline {
         // 详情请阅 https://dev.tencent.com/help/knowledge-base/how-to-use-ci#agents
         // label "default"
         docker {
-            image: 'finleyma/circleci-nodejs-browser-awscli'
+            image 'finleyma/circleci-nodejs-browser-awscli'
         }
     }
     stages  {
