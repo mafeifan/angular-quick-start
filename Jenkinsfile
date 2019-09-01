@@ -5,14 +5,14 @@ pipeline {
         // 详情请阅 https://dev.tencent.com/help/knowledge-base/how-to-use-ci#agents
         // label "default"
         docker {
-            image 'finleyma/circleci-nodejs-browser-awscli'
+            image 'finleyma/circleci-nodejs-browser-awscli:latest'
         }
     }
     stages  {
 
         stage("检出") {
             steps {
-                sh 'ci-init'
+                // sh 'ci-init'
                 checkout(
                     [$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]],
                     userRemoteConfigs: [[url: env.GIT_REPO_URL]]]
