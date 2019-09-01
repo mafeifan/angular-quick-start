@@ -1,4 +1,4 @@
-pipeline {
+node {
     agent {
         // 此处设定构建环境，目前可选有
         // default, java-8, python-3.5, ruby-2.3, go-1.11 等
@@ -20,17 +20,14 @@ pipeline {
             }
         }
 
-
-
         stage("安装") {
             steps {
                 echo "安装中..."
                 sh 'node -v'
               	// add-apt-repository ppa:chromium-daily/stable && apt-get update
               	// apt-get update -y && apt-get dist-upgrade -y && apt-get install -y chromium
-                sh 'cd app && npm install --verbose'
-
-                echo "构建完成."
+                sh 'npm install --verbose'
+                echo "安装依赖完成."
             }
         }
 
