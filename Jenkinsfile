@@ -1,18 +1,23 @@
- // https://e.coding.net/help/knowledge-base/ci-ways/
+pipeline {
+    agent {
+        // 此处设定构建环境，目前可选有
+        // default, java-8, python-3.5, ruby-2.3, go-1.11 等
+        // 详情请阅 https://dev.tencent.com/help/knowledge-base/how-to-use-ci#agents
+        // label "default"
+        docker {
+            image 'circleci/node:10.14-browsers'
+        }
+    }
+    stages  {
 
- node {
-     stage("检出") {
-         sh 'pwd'
-         sh 'ls -la'
-         sh 'ci-init'
-         sh "printenv"
-         checkout(
-           [$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]], userRemoteConfigs: [[url: env.GIT_REPO_URL]]]
-         )
-         sh 'pwd'
-         sh 'ls -la'
-     }
-     docker.image('circleci/node:10.14-browsers') {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', credentialsId: 'fda5ef06-9d67-441e-b774-7276610eb277', url: 'git@e.coding.net:mafeifan/angular-quickstart.git'
+                // checkout([$class: 'GitSCM', branches: [[name: 'master']],
+                //         userRemoteConfigs: [[url: 'git@e.coding.net:mafeifan/angular-quickstart.git', credentialsId: 'fda5ef06-9d67-441e-b774-7276610eb277' ]]])
+            }
+        }
+
         stage("安装") {
             steps {
                 echo "安装中..."
