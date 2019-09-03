@@ -17,7 +17,7 @@ pipeline {
     stage('Checkout') {
       steps {
         // sh 'ci-init'
-        git(branch: 'master', credentialsId: "${env.credentialsId}", url: 'https://e.coding.net/mafeifan/angular-quickstart.git')
+        git(branch: 'master', credentialsId: "${env.CREDENTIALS_ID}", url: 'https://e.coding.net/mafeifan/angular-quickstart.git')
       }
     }
     stage('安装') {
