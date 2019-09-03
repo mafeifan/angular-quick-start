@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(branch: 'master', credentialsId: 'fda5ef06-9d67-441e-b774-7276610eb277', url: 'git@e.coding.net:mafeifan/angular-quickstart.git')
+        git(branch: 'master', url: 'git@e.coding.net:mafeifan/angular-quickstart.git')
       }
     }
     stage('安装') {
