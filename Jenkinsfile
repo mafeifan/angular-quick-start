@@ -1,3 +1,5 @@
+// https://e.coding.net/help/knowledge-base/continuous-integration/variable/
+
 pipeline {
   agent {
     docker {
@@ -6,6 +8,12 @@ pipeline {
 
   }
   stages {
+    
+    stage('debug') {
+      steps {
+        sh 'env'
+      }
+    }
     stage('Checkout') {
       steps {
         // sh 'ci-init'
