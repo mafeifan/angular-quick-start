@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(branch: 'master', credentialsId: "5fcfdf78-991f-4d1c-a65c-ba60862cadda", url: 'https://e.coding.net/mafeifan/angular-quickstart.git')
+        sh 'ci-init'
+        // git(branch: 'master', credentialsId: "5fcfdf78-991f-4d1c-a65c-ba60862cadda", url: 'https://e.coding.net/mafeifan/angular-quickstart.git')
       }
     }
     stage('安装') {
