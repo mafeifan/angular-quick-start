@@ -17,7 +17,9 @@ pipeline {
     stage('Checkout') {
       steps {
         // sh 'ci-init'
-        git(branch: 'master', credentialsId: "${env.CREDENTIALS_ID}", url: 'https://e.coding.net/mafeifan/angular-quickstart.git')
+        // git(branch: 'master', credentialsId: "${env.CREDENTIALS_ID}", url: 'git@e.coding.net:mafeifan/angular-quickstart.git')
+        checkout([$class: 'GitSCM', branches: [[name: env.GIT_BUILD_REF]], 
+             userRemoteConfigs: [[url: env.GIT_REPO_URL, credentialsId: env.CREDENTIALS_ID]]])
       }
     }
     stage('安装') {
