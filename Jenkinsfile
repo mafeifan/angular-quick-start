@@ -1,4 +1,5 @@
 // https://e.coding.net/help/knowledge-base/continuous-integration/variable/
+// https://e.coding.net/help/doc/ci/
 
 pipeline {
   agent {
@@ -26,7 +27,7 @@ pipeline {
       steps {
         echo '安装中...'
         sh 'node -v'
-        sh 'npm install --verbose'
+        sh 'npm install'
         echo '安装依赖完成.'
       }
     }
@@ -46,8 +47,5 @@ pipeline {
         echo '部署完成'
       }
     }
-  }
-  environment {
-    aa = '11'
   }
 }
