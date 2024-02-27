@@ -1,0 +1,51 @@
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+# See: https://github.com/ci-samples/angular-cli-circleci/blob/master/.circleci/config.yml
+version: 2
+jobs:
+  build:
+    docker:
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # specify the version you desire here
+      # - image: circleci/node:10.14-browsers
+      - image: finleyma/circleci-nodejs-browser-awscli
+    working_directory: ~/repo
+    # https://circleci.com/docs/2.0/env-vars/
+    environment:
+      ANGULAR_BUILD_DIR: ~/repo/dist
+    steps:
+      - checkout
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+      - run:
+          name: install-dependencies
+          command: npm install
+      - run: node -v
+      - run: npm -v
+      - run: npm run lint
+      - run: npm run ci-test
+      - run: npm run ci-build
+      - run: tar -zcvf oneportal.gz -C dist .
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run: aws --version
+      - run:
+          name: upload-to-aws-s3
+          command: 'aws s3 cp oneportal.gz s3://your-aws-bucket/path/ --region us-east-1'
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: daily-build
